@@ -11,7 +11,9 @@ else:
     #Load previous passwords as a dictionnary {website:(username,password)}
     saved_passwords = get_saved_passwords()
 
-    while True:
+    continue_dir = True
+
+    while continue_dir:
 
         #Display the list of available websites
         print("\nList of websites:")
@@ -31,9 +33,11 @@ else:
             break
 
         #Ask user for next steps: search for a new password, or leave our program
-        selection = input("\nWould you like to look for another password? (y/n)")
-        if selection.lower() != "y" and selection.lower() != "n":
-            print("Please enter 'y' for 'yes', or 'n' for 'no'.")
-        elif selection.lower() == "n":
-            print("Thank you for using our password directory. See you soon!")
-            break
+        while True:
+            selection = input("\nWould you like to look for another password? (y/n)")
+            if selection.lower() != "y" and selection.lower() != "n":
+                print("Please enter 'y' for 'yes', or 'n' for 'no'.")
+            elif selection.lower() == "n":
+                print("Thank you for using our password directory. See you soon!")
+                continue_dir = False
+                break
